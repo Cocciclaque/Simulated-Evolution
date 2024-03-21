@@ -21,19 +21,13 @@ def mainloop():
                     move = 1
                 if event.key == pygame.K_RIGHT:
                     move = 2
-
-
-        Manager.dt = 0
+        
         Manager.move()
-        stepcounter += 1
 
         if move == 0:
             for i in range(random.randint(0, 5)):
                 Manager.spawnFood()
                 Manager.spawnFood()
-            
-            # Manager.spawnFood()
-            # Manager.spawnFood()
 
         if move == 1:
             Manager.spawnFood()
@@ -41,15 +35,14 @@ def mainloop():
 
 
         if move == 2:
-            for i in range(random.randint(0, 5)):
+            for i in range(random.randint(0, 3)):
                 Manager.spawnFoodSparse()
-            for i in range(10):
+            for i in range(7):
                 Manager.spawnFoodEden()
 
         Manager.draw(screen)
         Manager.check_for_reproduces()
-
-        Manager.update_clock(clock.tick(fps))
+        
         pygame.display.flip()
 
 
